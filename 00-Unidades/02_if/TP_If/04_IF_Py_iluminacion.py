@@ -3,10 +3,10 @@ from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
-
+import math 
 '''
-nombre:
-apellido:
+nombre:Agustin
+apellido:Gonzalez
 ---
 TP: IF_Iluminacion
 ---
@@ -43,8 +43,64 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+           Marca = self.combobox_marca.get()
+           txt_cantidad = self.combobox_cantidad.get()
+           cantidad = int(txt_cantidad)
+
+           
+
+           precio_lampara = 800
+
+           if cantidad >5:
+                 descuento =0.5
+           elif cantidad == 5:
+                if Marca == "ArgentinaLuz":
+                      descuento = 0.40
+                else:
+                      descuento = 0.30
+                   
+
+           elif cantidad == 4:
+               if Marca == "ArgentinaLuz" or "FelipeLamparas":
+                     descuento = 0.25
+               else:
+                     descuento = 0.20
+           elif cantidad == 3:
+                if Marca == "ArgentinaLuz":
+                     descuento = 0.15
+
+                elif Marca == "FelipeLamparas":
+                     descuento = 0.1
+                else:
+                     descuento = 0.05
+           else:
+                descuento = 0
+
+                
+           
+                     
+
+            
+           total = cantidad * precio_lampara
+           total_con_descuento = int(total - (total * descuento))
+           
+           if total_con_descuento <4001:
+                mensaje = f"el importe total es de {total_con_descuento}"
+           
+
+
+           if total_con_descuento >4000:
+                descuento_add = 0.05
+           else:
+                descuento_add = 0
+
+                
+           total_final = total_con_descuento - (total_con_descuento * descuento_add)
+           
+           mensaje = f"el importe total sera de ${total_final}"
+
         
+           alert("importe", mensaje )
     
 if __name__ == "__main__":
     app = App()

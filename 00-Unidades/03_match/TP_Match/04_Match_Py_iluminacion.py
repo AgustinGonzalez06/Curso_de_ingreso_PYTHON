@@ -43,7 +43,19 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        lamparitas = 800
+        cantidad = self.combobox_cantidad.get()
+        marca = self.combobox_marca.get()
+
+
+
+        
+
+      
+
+          
+
+        
         
     
 if __name__ == "__main__":
